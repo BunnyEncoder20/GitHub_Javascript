@@ -1,3 +1,6 @@
-const min = 10
-const max = 20
-console.log(Math.floor(Math.random()*(max-min+1))+min);
+let date = new Date()
+newDate = date.toLocaleString('default',{
+    weekday:'long',
+    month:"long"
+})
+console.log(newDate)
