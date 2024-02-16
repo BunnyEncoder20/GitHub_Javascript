@@ -1,2 +1,6 @@
-console.log("2" == 2)   // true
-console.log("2" === 2)  // false
+arr = [1,2,3]
+obj = {name:"Soma",age:22}
+func = function() {
+    console.log("Hello World")
+}
+console.table([typeof arr,typeof obj,typeof func])

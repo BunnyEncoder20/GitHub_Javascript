@@ -1,14 +1,21 @@
 # Read the official Documentation of MarkDowns [here](https://markdownmonster.west-wind.com/docs/_4s01ezteq.htm#:~:text=You%20can%20click%20on%20the,where%20the%20Markdown%20document%20lives.)
 
 ### MarkDown Syntaxes
-bold : **text** or __text__
-italic : *text* or _text_
-bold_italic : ***text***
-Strikethrough : ~~text~~
-subscript : <sub>text</sub>
-superscript : <sup></sup>
+- bold : **text** or __text__
+- italic : *text* or _text_
+- bold_italic : ***text***
+- Strikethrough : ~~text~~
+- subscript : Hellow<sub>text</sub>
+- superscript : Hellow<sup>text</sup>
 
-Quote a text : >text
+- Quote a text : 
+>text
+- Multiple para quotes
+> THis 
+> is 
+> multple line 
+> quotes
+
 Quoting Code : ``` code ```
 Inserting Links : [GitHub Pages](https://pages.github.com/)
 
