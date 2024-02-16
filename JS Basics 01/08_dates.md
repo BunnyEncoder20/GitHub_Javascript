@@ -69,3 +69,4 @@ newDate = date.toLocaleString('default',{
 })
 console.log(newDate)        // February Friday
 ```
+
