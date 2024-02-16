@@ -76,3 +76,55 @@ const newA2 = a1.splice(1,3)
 console.log(newA2);             // [1,2,3]
 console.log("C ",a1);           // C: [ 0, 4, 5, 6, 7, 8, 9 ] 
 ```
+---
+
+## Advance Methods in JS Arrays 
+
+- JS arrays can take any values as elements, even another array. So using .push(arr) is not a good way to merge 2 arrays
+```javascript
+let marvel = ["BlackWidow","IronMan","Thor","CaptainAmerica","Hulk"]
+let dc = ["Batman","Superman","WonderWoman","Flash","GreenLantern","Cyborg","Shazam"]
+
+console.log(marvel.push(dc))    //['blackWidow','IronMan','Thor','CaptainAmerica','Hulk',['Batman','Superman','WonderWoman','Flash','GreenLantern','Cyborg','Shazam'] ]
+```
+- it makes the entire array into the new index 
+- better way is to use `arr1.concat(arr2)`
+
+1. `arr1.concat(arr2)`: concats arr2 with arr1 and returns a new array
+```javascript
+console.log(marvel.concat(dc))
+```
+2. **`...spread operator`**: the `...` operator (spread operator) is used to spread the elements of the array or objects and can either add elements if not already present or can also update the properties of keys value pairs (in case of an object) if they already exist. Modern day programmers use this because it is very easy to use and more powerful.
+```javascript
+const all_heroes = [...marvel, ...dc]
+console.log(all_heroes) // ["BlackWidow","IronMan","Thor","CaptainAmerica","Hulk","Batman","Superman","WonderWoman","Flash","GreenLantern","Cyborg","Shazam"]
+```
+3. `.flat(n)`: used on a multi-dimensional array, it converts 'n' levels of the nested arrays into a single dimensional array.
+```javascript
+let crazyArr = [1,2,3,[4,5,6],7,[8,[9,10]]]
+let usableCrazyArr = crazyArr.flat(Infinity)
+console.log(usableCrazyArr)     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+```
+4. `'Array.isArray()'`: returns boolean whether or not the passed element is an array or not.
+5. `Array.from()`: converts the passed element into an array object.
+```javascript
+let str = "bunny"
+console.log(Array.isArray(str))     // false
+console.log(Array.from(str))        // [ 'b', 'u', 'n', 'n', 'y' ]
+```
+- an interesting case with `.from()` happens when we are trying to convert an object into an array: 
+```javascript
+let obj = {name:"bunny"}
+console.log(Array.isArray(obj)) // false
+console.log(Array.from(obj))    // []
+```
+- it returns an empty array because it is not being able to convert the object directly. 
+- We would need to specify that we want to make a array of object keys or values. (more about this in Object notes)
+
+6. `Array.of()`: returns an new array from passed elements.
+```javascript
+let e1 = 100
+let e2 = 200
+let e3 = 300
+console.log(Array.of(e1, e2, e3))   // [ 100, 200, 300 ]
+```
