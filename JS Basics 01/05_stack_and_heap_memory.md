@@ -1,11 +1,11 @@
 # Stack and Heap Memory
 
-- All the primitive types use Stack memory 
-  - Hence whenever stack memory is used, we get a copy of the original data and all changes are made in that
+- All the `primitive` types use **Stack memory** 
+  - Hence whenever _stack memory_ is used, we get a **copy** of the original data and all changes are made in that
   - Original data will remain unchanged.
-- All non-primitive types use Heap memory
-  - We get the reference of the original data from Heap memory when we make a copy of the data. 
-  - Hence all changes made are reflected in the original data also
+- All `non-primitive` types use **Heap memory**
+  - We get the **reference** of the original data from Heap memory when we try to make a copy of the data. 
+  - Hence all changes made are reflected in the original data also (because the original memory location data was changed)
 
 This can be seen clearly in the example below:
 ```javascript

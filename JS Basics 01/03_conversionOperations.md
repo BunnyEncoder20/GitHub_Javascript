@@ -11,13 +11,14 @@ console.log(typeof(score))  // number
 score = "33"
 console.log(typeof(score))  // string
 ```
-**NOTE:** the types of the variables are given in small letters and when we call the function to convert the types, the function names start with Caps
+**NOTE:** the data types of the variables are given in _small letters_ and when we call the function to convert the variable's type, the function names start with _Capital letter_
+
 ```javascript
 let valueInNumber = Number(score)   
 console.log(typeof(valueInNumber)) // number
 ```
 
-**NOTE:** be careful when converting non-pure number strings into numbers. The conversion will place, but the value will become a something else. 
+**NOTE:** be careful when converting non-pure number strings into numbers. The conversion will take place, but the value will become a something else (`NaN`). 
 ***Examples:*** 
 ```javascript
 let score = "33abc"
@@ -54,7 +55,7 @@ console.log(scoreInNumber)          // NaN
 
 _Similarly_ we can convert an type into any other type just by simply (remember first letter of converting type function is always caps) : 
 ```javascript
-let convertedVariable = Type2convert2(variableName)
+let convertedType = Type2convert2(variableName)
 ```
 ---
 ### Converting Shiz to `boolean`
@@ -80,28 +81,35 @@ _The conversions are summarized in the below table :_
 ### Converting Shiz to `string`
 
 ```javascript
-let position = 69
+let position = 69                   // 😏
 console.log(typeof(position))       // number
 
 let position2string = String(position)
 console.log(typeof(position2string)) // string
 console.log(position2string)         // 69
 ```
+- To Summarize : 
+
+| **S no.** 	| **Input** 	| **Type before conversion** 	| **Type after conversion** 	| **Value after conversion** 	|
+|:---------:	|:---------:	|:--------------------------:	|:-------------------------:	|:--------------------------:	|
+|   **1**   	|     69    	|           number           	|           string          	|             69             	|
+|   **2**   	|    null   	|           object           	|           string          	|            null            	|
+|   **3**   	| undefined 	|          undefined         	|           string          	|          undefined         	|
 ---
 
-These conversions are helpful in JS cause many times the API responses come in string format (arrays, objects, many more) and we have to convert them to other types all the time.
+**These conversions are helpful in JS cause many times the API responses come in string format (arrays, objects, many more) and we have to convert them to other types all the time.**
 
 ---
 
 ## Operations 
 
-Simple operations on variables to change their values or types according to needs of the code.
+We will be looking at simple operations on variables to change their values or types according to needs of the code.
 Eg:
 ```javascript
 let value = 3
 let negValue = -value
-console.log(negValue) 
-console.log(typeof(negValue))
+console.log(negValue)           // -3
+console.log(typeof(negValue))   // number
 ```
 
 - Some common Operations on Numbers include : 
@@ -116,11 +124,11 @@ console.log (2++);      // increment
 console.log (2--);      // decrement
 ```
 
-- Some common Operations on Srings (concatenation)
+- Some common Operations on Strings (concatenation)
 ```javascript
 let name = "soma"
-let desig = "senpai"
-console.log(name+desig)
+let designation = "senpai"
+console.log(name+designation)
 ```
 
 ---
@@ -138,7 +146,7 @@ console.log(1+2+"2")       // 32 - string
 
 ## Special Operations 
 
-- Increment or Decrement ops
-    - can be prefix (++Num) or postfix (Num++)
-    - prefix : increment or dec rement before using the value
-    - postfix : increment or decrement after using the values
+- **Increment** or **Decrement** ops
+    - can be `prefix` (++Num) or `postfix` (Num++)
+    - `prefix` : increment or dec rement before using the value
+    - `postfix` : increment or decrement after using the values
