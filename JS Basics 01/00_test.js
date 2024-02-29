@@ -1,15 +1,15 @@
-let obj = {
-    name:"Soma",
-    age:22,
-    greeting: function(){
-        console.log("Hello World")
-    }
-}
-
-console.log(obj.greeting)       // [Function: greeting]
-obj.greeting()                  // Hello World
-
-obj.greeting2 = function(){
-    console.log(`Hello Obj ${this.name}`)
-}
-obj.greeting2()
+let users = new Object()
+users = [
+    {
+        userID:1,
+        uname:"Soma",
+    },
+    {
+        userID:2,
+        uname:"Senpai",
+    },
+    {
+        userID:3,
+        uname:"Bunny",
+    },
+]

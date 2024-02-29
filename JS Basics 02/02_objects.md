@@ -144,3 +144,212 @@ obj.greeting2()             // Hello Obj Soma
 --- 
 
 ## Objects Advanced (Objects Part 2)
+
+### 1. Object Declaration using Constructor
+
+- We can declare singleton object using constructor method as follows:
+```node
+let obj = new Object()  // returns {} 
+```
+- This obj is not different from our `Literal` declaration of obj. The only Difference is that this is a **singleton object** while the one made with `literals` is not.
+- We can add new field:value pairs just like before:
+```javascript
+let user = new Object()
+let objKey =  Symbol()
+
+user[objKey] = "🔑"
+user.name = "Soma"
+user.isLoggedIn = true
+
+console.log(user)       // { name: 'Soma', isLoggedIn: true, [Symbol()]: '🔑' }
+```
+- We can created nested objects.
+```javascript
+let user = new Object()
+let objKey =  Symbol()
+
+user = {
+    [objKey]:'🗝️',
+    name:{
+        username:{
+            username:"soma_senpai0106",
+            email:"soma.senpai@email.com",
+            fullname:{
+                firstname:"soma",
+                lastname:"senpai"
+            }
+        }
+    },
+    age:22
+}
+```
+- And we can access the same objects using `.` operator chaining : 
+```javascript
+console.log(user.name)
+console.log(user.name.username)
+console.log(user.name.username.uname)               // soma_senpai0106
+console.log(user.name.username.fullname)            // { firstname: 'soma', lastname: 'senpai' }
+console.log(user.name.username.fullname.firstname)  // soma
+console.log(user.name.username.fullname.lastname)   // senpai
+```
+- Output
+```node
+{
+  username: {
+    uname: 'soma_senpai0106',
+    email: 'soma.senpai@email.com',
+    fullname: { firstname: 'soma', lastname: 'senpai' }
+  }
+}
+
+{
+  uname: 'soma_senpai0106',
+  email: 'soma.senpai@email.com',
+  fullname: { firstname: 'soma', lastname: 'senpai' }
+}
+
+soma_senpai0106
+
+{ firstname: 'soma', lastname: 'senpai' }
+
+soma
+
+senpai
+```
+
+<br>
+
+- **Optional Chaining** can also be applied to the object chaining to apply a layer of protection to the accession (just in case one of the values was not there)
+```javascript
+console.log(user.name.username.fullname?.firstname) // checks to see if fullname is present or not before accessing further 
+console.log(user.name.username.fullname?.lastname)  // same as above
+```
+
+---
+
+### 2. Assigning Values to Objects
+
+- **`Object.assign()`** 
+  -  method copies all enumerable own properties from one or more source objects to a target object. 
+  -  It returns the modified target object.  
+-  **Syntax:**
+```node 
+Object.assign(target)
+Object.assign(target, source1)
+Object.assign(target, source1, source2)
+Object.assign(target, source1, source2, /* …, */ sourceN)
+```
+
+-  **Examples**
+
+
+```javascript 
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// Expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget === target);
+// Expected output: true
+```
+
+<br>
+
+- But in production, these are rarely used now days. Now we use the spread because it can combine objects also (as seen earlier)
+  
+```javascript
+const source1 = { a: 1, b: 2 };
+const source2 = { c: 4, d: 5 };
+const targetObject = {...source1, ...source2}
+console.log(targetObject)                       // { a: 1, b: 4, c: 5 }
+```
+- **Remember** that spread will update any fields which have the same name in both objects.
+
+---
+
+### 2. Receiving Objects from database
+
+- Generally when receiving data from database, or APIs, we get the data in the form of Array of objects : 
+```node 
+let users = new Object()
+users = [
+    {
+        userID:1,
+        uname:"Soma",
+    },
+    {
+        userID:2,
+        uname:"Senpai",
+    },
+    {
+        userID:3,
+        uname:"Bunny",
+    }
+]
+```
+- You can access these values using the basic accessing syntaxes of arrays and objects 
+  
+```javascript
+users[0].userID     // 1
+users[0].uname      // 'Soma'
+```
+
+---
+
+### 3. Object Methods 
+
+1. **`Object.keys(obj)`**
+    - method returns an array of a given object's own enumerable string-keyed **property names**.
+    - returns an array of all the keys of the `obj` object
+- **Example :**
+```node
+> let obj = {name:'soma',age:22,isLoggedIn:true}
+> Object.keys(obj)
+[ 'name', 'age', 'isLoggedIn' ]
+```
+
+2. **`Object.values(obj)`**
+    - method returns an array of a given object's own enumerable string-keyed **property values**.
+    - returns an array of `obj` objects values
+- **Examples:**
+```node 
+> Object.values(obj)
+[ 'soma', 22, true ]
+```
+
+3. **`Object.entries(obj)`**
+    - method returns an array of a given object's own enumerable string-keyed property key-value pairs.
+    - returns the array which has nested arrays of each key:value pair of the `obj` object
+    - Kinda works like the `.items` from python used on Lists
+- **Examples**
+```node
+> Object.entries(obj)
+[ [ 'name', 'soma' ], [ 'age', 22 ], [ 'isLoggedIn', true ] ]
+```
+
+4. **`Object.hasOwn(obj, prop)`**
+    - method returns true if the specified `obj` has the indicated property `prop` as **its own property**. 
+    - If the property is inherited, or does not exist, the method returns false. 
+    - Returns an boolean indicating whether the `prop` property exists in the `obj` object or not
+- **Exmaples:**
+```node
+> let obj = {name:'soma',age:22,isLoggedIn:true}
+> Object.hasOwn(obj, 'name')
+true
+```
+- This can also be done using the object instance property `hasOwnProperty()`
+- **`obj.hasOwnProperty('name')`**: 
+  - same as above but is a method of the object instance 
+  - method of Object instances returns a boolean indicating whether this object has the specified property as its own property (as opposed to inheriting it). 
+
+- **Example**
+  
+```node
+> obj.hasOwnProperty('name')
+true
+```
+
+
