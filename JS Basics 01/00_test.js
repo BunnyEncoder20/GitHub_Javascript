@@ -1,15 +1,8 @@
-let users = new Object()
-users = [
-    {
-        userID:1,
-        uname:"Soma",
-    },
-    {
-        userID:2,
-        uname:"Senpai",
-    },
-    {
-        userID:3,
-        uname:"Bunny",
-    },
-]
+let course = {
+    title: "Chai aur JS",
+    price: 999,
+    instructor: "Hitesh"
+}
+let {title:t, price:p, instructor:i} = course
+
+console.table([t, p, i])

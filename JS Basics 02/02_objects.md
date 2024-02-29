@@ -3,7 +3,7 @@
 > They say that if you want to master JS then master 2 things : Objects and Events.
 ---
 
-## Objects Basics (Part 1)
+## Objects simple literals  (Part 1)
 
 ### 1. Object Declaration
 
@@ -143,7 +143,7 @@ obj.greeting2()             // Hello Obj Soma
 
 --- 
 
-## Objects Advanced (Objects Part 2)
+## Objects Constructors and Methods (Objects Part 2)
 
 ### 1. Object Declaration using Constructor
 
@@ -352,4 +352,83 @@ true
 true
 ```
 
+---
 
+## Object Advanced (Objects Part 3)
+
+### 1. Destructuring 
+
+- Destructuring can be done for both objects and arrays.
+- Objects destructuring is done a lot in frameworks and APIs
+
+<br>
+
+- Consider the below object : 
+```javascript
+let course = {
+    title: "Chai aur JS",
+    price: 999,
+    instructor: "Hitesh"
+}
+```
+- Destructure would involve extracting the property values from the object and storing them in separate variables using **`{}`**.
+
+```javascript
+let course = {
+    title: "Chai aur JS",
+    price: 999,
+    instructor: "Hitesh"
+}
+let {title, price, instructor} = course
+
+console.table([title, price, instructor])
+```
+- Output
+```node
+┌─────────┬───────────────┐
+│ (index) │ Values        │
+├─────────┼───────────────┤
+│ 0       │ 'Chai aur JS' │
+│ 1       │ 999           │
+│ 2       │ 'Hitesh'      │
+└─────────┴───────────────┘
+```
+- Notice that the names of the variables are same as the property names. 
+- If we want to use a smaller variable we can mention them after the property name like : 
+
+```javascript
+let {title:t, price:p, instructor:i} = course
+console.table([t, p, i])
+```
+- Output (same as before)
+
+```node
+┌─────────┬───────────────┐
+│ (index) │ Values        │
+├─────────┼───────────────┤
+│ 0       │ 'Chai aur JS' │
+│ 1       │ 999           │
+│ 2       │ 'Hitesh'      │
+└─────────┴───────────────┘
+```
+
+--- 
+
+### 2. APIs
+
+- API do certain tasks for us or give us some data.
+- Previously, APIs used to send data in xml format 
+- But in present day, data comes from APIs in **`JSON`** format
+- JSON looks like objects : 
+
+```json
+{
+    "name":"Soma",
+    "age":22,
+    "job":"Developer",
+    "location":"Thane",
+}
+```
+
+- APIs can return back data in array of objects and within those also there will be further nested objects and arrays.
+- Hence JSON formatting tools like [JSONformatter.org](https://jsonformatter.org/json-viewer) help us study such API responses so that we can access their data correctly
