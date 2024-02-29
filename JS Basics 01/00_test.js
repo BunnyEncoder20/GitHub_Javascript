@@ -1,9 +1,4 @@
-let newDate = new Date();
-console.log(newDate);
-console.log(newDate.getDate());
-console.log(newDate.getFullYear());
-console.log(newDate.getMonth());
-console.log(newDate.getDay());
-console.log(newDate.getHours());
-console.log(newDate.getMinutes());
-console.log(newDate.getSeconds());
+let e1 = 100
+let e2 = true
+let e3 = 'Soma'
+console.log(Array.of(e1, e2, e3))

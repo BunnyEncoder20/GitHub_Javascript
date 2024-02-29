@@ -1,5 +1,32 @@
 # Variables in JS 
 
+### Node Shell
+
+- Just a few quick pointers about using the Node shell in the terminal 
+- Node.js comes with virtual environment called REPL (aka Node shell). REPL stands for Read-Eval-Print-Loop. It is a quick and easy way to test simple Node.js/JavaScript code. 
+- It is similar to python shell
+
+<br>
+
+- To open the REPL (Node shell) :
+  - Type `>node` and hit enter.
+```
+PS C:\Users\gener\Coding\GitHub_Javascript> node
+```
+- If you need to write multi line JS expression or function then just press Enter whenever you want to write something in the next line as a continuation of your code. 
+- The REPL terminal will display three dots (...), it means you can continue on next line. - Write .break (**OR** just close the block and hit enter **OR** press Ctrl + C) to get out of continuity mode. 
+```
+> function add(x,y){
+... return x+y 
+... }
+undefined
+> add(2,3)
+5
+```
+- To exit from the REPL terminal, press `Ctrl + C` twice or write `.exit` and press Enter. 
+
+---
+
 - Lets us declare some variables below : 
 ```javascript
 const accountId = 144553
