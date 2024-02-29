@@ -10,8 +10,8 @@ console.log(myDate.toString()); // Fri Feb 16 2024 16:34:55 GMT+0530 (India Stan
 console.log(myDate.toDateString());     // Fri Feb 16 2024
 console.log(myDate.toLocaleString());   // 16/2/2024, 4:36:01 pm
 ```
-- Here `myDate` if of type `Object`
-- We can create a specific Date also : 
+- Here `myDate` is of type `Object`
+- We can create a specific `Date` also : 
 ```javascript
 let date = new Date(2023, 0, 23)
 console.log(date.toDateString());   // Mon Jan 23 20
@@ -50,17 +50,18 @@ console.log(Math.floor(Date.now()/1000))    //floor for avoiding the decimals
 
 - Some self explanatory functions include :  
 ```javascript
-let newDate = new Date();
-console.log(newDate);
-console.log(newDate.getDate());
-console.log(newDate.getFullYear());
-console.log(newDate.getMonth());
-console.log(newDate.getDay());
-console.log(newDate.getHours());
-console.log(newDate.getMinutes());
-console.log(newDate.getSeconds());
+let newDate = new Date();           // 29th Feb 2024 @ 10:01:17 am
+console.log(newDate);               // 2024-02-29T04:31:17.952Z 
+console.log(newDate.getDate());     // 29
+console.log(newDate.getFullYear()); // 2024
+console.log(newDate.getMonth());    // 1
+console.log(newDate.getDay());      // 4
+console.log(newDate.getHours());    // 10
+console.log(newDate.getMinutes());  // 1
+console.log(newDate.getSeconds());  // 17
 ```
-- Another interesting to know function is the `.toLocaleString()`. It is a object and comes with a lot more functionality and customization for the format in which it prints the dates : 
+- Another interesting to know function is the `.toLocaleString()`. This is used to change the format of the date with heavy customization.
+- It is a object and comes with a lot more functionality and customization for the format in which it prints the dates : 
 ```javascript
 let date = new Date()
 newDate = date.toLocaleString('default',{

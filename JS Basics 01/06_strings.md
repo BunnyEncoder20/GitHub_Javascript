@@ -27,15 +27,27 @@ console.log(senpai.toUpperCase())
 ```
 > **Remember** this functions do not change the original value of the string _(primitive = call by value = stack memory)_.
 
+- String methods create new strings based on the content of the current string — for example:
+    - A substring of the original using `substring()`.
+    - A concatenation of two strings using the concatenation operator (`+`) or `concat()`.
+
+
+<br>
+
 - Some other useful methods : 
 ```javascript
-console.log(senpai.charAt(2))       // m
-console.log(senpai.indexOf('m'))    // 2
-console.log(senpai.substring(0,3))  // som - note how the last index of the substring method is exclusive
+str = "soma"
+console.log(str[2])              // m
+console.log(str.charAt(2))       // m
+console.log(str.indexOf('m'))    // 2
+console.log(str.substring(0,3))  // som - note how the last index of the substring method is exclusive
 
-senpai = "somasenpailovesbunny"
-console.log(senpai.slice(-8,15))    // ves - do note that you can use negative indices only with slice and not substring (it'll not throw error but willl not give the desired result)
+str = "somasenpailovesbunny"
+console.log(str.slice(-8,15))    // ves
 ```
+>- **Note:** as you already know negative index means counting from the end of the string.
+>- **Note:** that you can use negative indices only with slice and not substring (it'll not throw error but will not give the desired result)
+
 - `Trim` is also a useful and interesting method: 
 ```javascript
 let username = "    soma    "

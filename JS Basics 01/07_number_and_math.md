@@ -14,22 +14,22 @@ let score2 = new Number(69)   // typeof score == number always
 console.log(score1) // 69
 console.log(score2) // [Number: 69]
 ```
-- Numbers come with various methods (though they are a lot less than string methods) mentioned below : 
+- `numbers` come with various methods (though they are a lot less than string methods) mentioned below : 
 
 1. `toString()` converts a number to a string
-2. `toFixed(n)` converts a number to n decimal places number. Eg:
+2. `toFixed(n)` rounds off a number to n decimal **places** (digits after the decimal point) and returns a string. Eg:
 ```javascript
 let cost = 100
 console.log(cost.toFixed(2))     // 100.00
 ```
-3. `toPrecision(n)` rounds off the number to n places and returns a string. Eg: 
+1. `toPrecision(n)` rounds off the number to n **digits** and returns a string. Eg: 
 ```javascript
 let cost = 120.76859
 console.log(cost.toPrecision(5));   // 120.77
 console.log(cost.toPrecision(3));   // 121
 console.log(cost.toPrecision(2));   // 1.2e+2
 ```
-4. `toLocaleString()` converts a number to readable (number system) formats (American or Indian). Eg: 
+1. `toLocaleString()` converts a number to readable (number system) formats (American or Indian). Eg: 
 ```javascript
 let money = 1000000000
 console.log(money.toLocaleString('en-US'))      // 1,000,000,000
@@ -42,7 +42,7 @@ console.log(money.toLocaleString('en-IN'))      // 1,00,00,00,000
 ## The Math library
 
 - It is a built-in JavaScript library
-- It comes with many properties (which are number constants). Eg:
+- It comes with many properties some of which are number constants. Eg:
 ```javascript
 console.log(Math.PI)    //3.141592653589793
 ```
@@ -73,5 +73,5 @@ console.log(Math.floor(Math.random()*10) +1);     // will generate a random numb
 > ```javascript
 > const min = 10
 > const max = 100
-> Math.floor(Math.random()*(max-min+1)) + min
+> const randNum = Math.floor(Math.random()*(max-min+1)) + min
 >```
