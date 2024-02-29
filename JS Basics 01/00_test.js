@@ -1,4 +1,15 @@
-let e1 = 100
-let e2 = true
-let e3 = 'Soma'
-console.log(Array.of(e1, e2, e3))
+let obj = {
+    name:"Soma",
+    age:22,
+    greeting: function(){
+        console.log("Hello World")
+    }
+}
+
+console.log(obj.greeting)       // [Function: greeting]
+obj.greeting()                  // Hello World
+
+obj.greeting2 = function(){
+    console.log(`Hello Obj ${this.name}`)
+}
+obj.greeting2()
