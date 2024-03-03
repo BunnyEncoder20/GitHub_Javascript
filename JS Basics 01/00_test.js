@@ -1,8 +1,5 @@
-let course = {
-    title: "Chai aur JS",
-    price: 999,
-    instructor: "Hitesh"
+function calculateCartCost(num1){
+    return num1
 }
-let {title:t, price:p, instructor:i} = course
 
-console.table([t, p, i])
+console.log(calculateCartCost(10))
