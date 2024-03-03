@@ -78,4 +78,69 @@ console.log(loginUserMsg())         // Please enter proper Username
 
 --- 
 
-##
+## 3. Multiple Values and Arrays with Functions
+
+- Consider a shopping cart example. We do not know how many items will the user add to the cart and hence we do not know the number of arguments. 
+
+- Look at the below code : 
+  
+```javascript
+function calculateCartCost(num1){
+    return num1
+}
+
+console.log(calculateCartCost(10,20,400))   // 10
+```
+- In situation like this, `JS` will only take the first argument as the function parameter and will ignore the rest.
+- Hence a use our super power `...` (rest/spread) operator:
+
+```javascript
+function calculateCartCost(...num1){
+    return num1
+}
+
+console.log(calculateCartCost(10,20,400)) // [10, 20, 400]
+```
+- **NOTE** how the `...` operator allows use to pass multiple arguments to a function.
+- **NOTE** that rest bundles all the arguments into an array.
+- If we want some parameters to be stored in specific variables, then we can apply the rest operators after those parameters : 
+
+```javascript
+function calculateCartCost(username,bff,...items){
+    console.log(username)   // Soma
+    console.log(bff)        // Bunny
+    return items            // returns [10,20,400]
+}
+
+console.log(calculateCartCost("Soma","Bunny",10,20,400)) // [10, 20, 400]
+```
+<br>
+
+- We can also pass an Array with multiple values at once : 
+
+```javascript
+function calculateCartCost(itemsArray){
+    return itemsArray                           // returns [10,20,400]
+}
+
+console.log(calculateCartCost([10,20,400]))     // [10, 20, 400]
+```
+
+
+
+---
+
+## 4. Functions and Objects 
+
+- Objects can also be passed into functions 
+
+```javascript
+function handlingObjects(anyObject){
+    console.log(`User is ${anyObject.username} and price is ${anyObject.price}`)
+}
+
+handlingObjects({username:"Soma",price:10})
+```
+>- This is all well and good but we need to keep in mind that we should be checking the type (of the parameter) and propertyNames(key) of the properties(items) of the object.
+>- If any of these are not of the expected type or misspelled, it will cause unexpected behaviors or undefined values.
+
