@@ -1,12 +1,10 @@
-let a = 100;
-var c = 300;
+console.log(addOne(1))      // 1
+console.log(addTwo(2))      // Error : undefined function addTwo()
 
-if (true){
-    let a = 1
-    var c = 3
-    console.log(`Inside block a:${a}`)
-    console.log(`Inside block c:${c}`)
+function addOne(num){
+    return num+1
 }
 
-console.log(`Outside block a:${a}`)
-console.log(`Outside block c:${c}`)
+const  addTwo = function(num){
+    return num+2
+}
