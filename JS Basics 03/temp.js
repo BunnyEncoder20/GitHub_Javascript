@@ -1,1 +1,15 @@
-( (a,b,c) => {console.log(a+b+c)} )(10,20,30);
+function one() {
+    console.log("one")
+    two()
+}
+
+function two(){
+    console.log("two")
+    three()
+}
+
+function three(){
+    console.log("three")
+}
+
+one()
