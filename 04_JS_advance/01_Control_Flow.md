@@ -205,5 +205,6 @@ console.log(designation)        // 😃
 
 const price = 200
 const comment = price<=100 ? "cheap" : "expensive"  
-console.log(comment)            // "expensive
+console.log(comment)            // "expensive"
 ```
+- **NOTE** not to confuse the `?` with the `??` operator. They are worlds apart.
