@@ -1,8 +1,18 @@
-let fruits = ['🍍','🥝','🍎','🍏','🍌','🍉','🍈','🍓','🥭']
+let data = [
+    {
+        lang : 'Javascript',
+        file : 'js'
+    },
+    {
+        lang : 'C++',
+        file : 'cpp'
+    },
+    {
+        lang : 'Java',
+        file : 'java'
+    }
+]
 
-for (let i=0; i<fruits.length; i++){
-    if (fruits[i] == '🥝' || fruits[i]=='🍈') 
-        continue;
-
-    console.log('I can have some ' + fruits[i])
-}
+data.forEach((langs)=>{
+    console.log(`${langs.lang}.${langs.file}`)
+})
