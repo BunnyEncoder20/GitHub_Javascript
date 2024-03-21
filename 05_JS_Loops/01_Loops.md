@@ -387,3 +387,29 @@ data.forEach((langs)=>{
     console.log(`${langs.lang}.${langs.file}`)
 })
 ```
+- Output
+```
+Javascript.js
+C++.cpp
+Java.java
+```
+
+- When we try to return a value from the `.forEach()` method, it will return undefined.
+
+```javascript
+const code = [
+    'js',
+    'ruby',
+    'java',
+    'python',
+    'cpp'
+]
+
+let value = code.forEach((lang)=>{
+    return lang
+})
+
+console.log(value)      // undefined
+```
+- **Remember** that `.forEach()` method does not return anything, even if we use the return keyword.
+- When we want to filter out elements or return a specific value after operating on the array, we use the `.filter()` , `.map()` method or `.reduce()` method respectively. (Discussed in next section)
