@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+    <style>
+        .bg-dark{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <ul class="languagesList">
+        <li class="language">Javascript</li>
+    </ul>
+</body>
+<script>
+    // function addLanguages(lang){
+    //     const li = document.createElement('li');
+    //     li.textContent = `${lang}`;
+    //     li.class = 'language';
+    //     document.querySelector('.languagesList').appendChild(li);
+    // }
+
+    const addLanguages = (langName) => {
+        const li = document.createElement('li');
+        li.className = "language"
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.languagesList').appendChild(li);
+    }
+
+    addLanguages('Python');
+    addLanguages('Java');
+    addLanguages('C++');
+    addLanguages('TypeScript');
+
+
+    // Editing DOM element
+    const secondLang = document.querySelector('li:nth-child(2)');
+    // secondLang.innerHTML = 'Python3';   // not optimized
+    const new_li = document.createElement('li');
+    new_li.className = 'language';
+    new_li.appendChild(document.createTextNode('Python3'));
+    secondLang.replaceWith(new_li);
+
+    // Removing DOM element
+    const lastLang = document.querySelector('li:last-child');   //TypeScript
+    lastLang.remove();
+</script>
+</html>
