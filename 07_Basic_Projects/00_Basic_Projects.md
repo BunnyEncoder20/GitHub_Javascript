@@ -240,4 +240,78 @@ form.addEventListener('submit', (e) => {
     }
 })
 ```
+<br>
+
+---
+
+## Project 3
+
+### Project3.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Clock</title>
+    <style>
+        .bg-dark{
+            background-color: #212121;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            margin: 0;
+        }
+
+        #banner{
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #clock{
+            background: #fd9c00;
+            color: #000;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="center">
+        <div id="banner">Your Local Time</div>
+        <br/>
+        <div id="clock">00:00:00</div>
+    </div>
+    <script src="03_Project3.js"></script>
+</body>
+</html>
+```
+
+### Project3.js
+```js
+const clock = document.querySelector('#clock')
+
+let date = new Date()
+// console.log(date.toLocaleTimeString())
+
+// setInterval function runs at a set interval of time defined as the second param of the function
+// setInterval(function(){},1000ms)
+setInterval(function(){
+    date = new Date()
+    clock.innerHTML = date.toLocaleTimeString([],{hour12:false})
+},1000)
+```
+
+<br>
+
+---
+
+## Project 4
+
+
 
