@@ -131,5 +131,113 @@ buttons.forEach(button => {
 ## Project 2
 
 ### Project2.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        .bg-dark{
+            background-color: #212121;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            margin: 0;
+        }
+
+        h1,h3{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+        }
+        button{
+            font-size: 20px;
+            background-color: #9aff68;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #buttonContainer{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <p>
+                <label for="height">Height in cms</label>
+                <input type="text" id="height" />
+            </p>
+            <p>
+                <label for="weight">Weight in kgs</label>
+                <input type="text" id="weight" />
+            </p>
+            <div id="buttonContainer">
+                <button>
+                    <b>Calculate</b>
+                </button>
+            </div>
+
+            <div id="results">
+                Enter Height & Weight and Click Calculate
+            </div>
+        </form>
+
+        <br>
+        <br>
+        <br>
+
+        <div id="guide">
+            <h3>BMI Weight Guide</h3>
+            <p>Less than 18.6 : Under Weight</p>
+            <p>Between 18.6 and 24.9 : Normal</p>
+            <p>Between 24.9 and 29.9 : Over Weight</p>
+            <p>More than 30 : Obese</p>
+        </div>
+    </div>
+    <script src="02_Project2.js"></script>
+</body>
+</html>
+```
 
 ### Project2.js
+```js
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const height = parseInt(document.querySelector('#height').value)/100;
+    const weight = parseInt(document.querySelector('#weight').value);
+    const resultDisplay = document.querySelector('#results');
+
+    console.log(height)
+    console.log(weight)
+
+    // isNaN() returns True if the value is not a number or empty
+    if (!isNaN(height) && !isNaN(weight) && height > 0 && weight > 0) {
+        const bmi = (weight / (height * height)).toFixed(1);
+        
+        if(bmi < 18.5) {
+            category = 'Skinny.<br/>Eat More 🍗';
+        } else if(bmi < 25) {
+            category = 'Normal. 👍';
+        } else if(bmi < 30) {
+            category = 'Overweight.<br/>Maybe lay off the snacks 🍫';
+        } else {
+            category = 'Obese.<br/>Daaamn boi, he THICC 🙀';
+        }
+        
+        resultDisplay.innerHTML = `Your BMI is ${bmi} <br/> You are ${category}`
+    } else {
+        resultDisplay.innerHTML = 'Please enter valid values';
+    }
+})
+```
+
