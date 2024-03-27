@@ -313,7 +313,8 @@ setInterval(function(){
 
 ## Project 4
 
-### Project4.html
-
-### Project4.js
+- This is not a mini project, refer the files:
+  - Project4.html
+  - Project4.js
+- for more details. 
 
