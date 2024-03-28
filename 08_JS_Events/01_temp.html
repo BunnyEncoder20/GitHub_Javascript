@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+
+    <style>
+        .bg-dark{
+            background-color: #414141;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul class="images">
+            <li><img    
+                    id="huracan" 
+                    width="200px"
+                    src="https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                    alt="green Huracan">
+            </li>
+            <li><img 
+                    id="m5" 
+                    width="200px"
+                    src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                    alt="blue bmw"
+                    onclick="alert('I love bmw')">
+            </li>
+            <li><img 
+                    id="r8" 
+                    width="200px"
+                    src="https://images.pexels.com/photos/5733734/pexels-photo-5733734.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                    alt="red audi r8">
+            </li>
+            <li><img 
+                    id="amg" 
+                    width="200px"
+                    src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                    alt="silver mercedes amg">
+            </li>
+            <li><img 
+                    id="hellcat" 
+                    width="200px"
+                    src="https://images.pexels.com/photos/3311574/pexels-photo-3311574.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                    alt="black dodge">
+            </li>
+            <li ><a 
+                    id="google"
+                    style="color: #fff;"
+                    href="https://www.google.com/">Google Search</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('r8').onclick = function(){
+    //     alert('Audi r8 comes in electric also');
+    // }
+
+    // document.querySelector('#huracan').addEventListener('click', function(e){
+    //     console.log(e)
+    //     alert('Huracan is actually the most affordable Lambo');
+    // }, false)
+
+    // document.querySelector('#huracan').addEventListener('click',(e)=>{
+    //     console.log('Clicked on Huracan')
+    //     e.stopPropagation()
+    // }) 
+
+    // document.querySelector('.images').addEventListener('click',(e)=>{
+    //     console.log('Clicked on Image List')
+    // })
+
+
+    // document.querySelector('#google').addEventListener('click',(e)=>{
+    //     console.log('Google Link Clicked')
+    //     e.preventDefault()
+    // })
+
+
+
+    // Image vanisher
+    document.querySelector('.images').addEventListener('click',(e)=>{
+        // console.log(e)
+        // console.log(e.target)
+        console.log(e.target.tagName)       // helps us know what tag was clicked
+
+        if (e.target.tagName === 'IMG'){
+            console.log(e.target.parentNode)    
+            e.target.parentNode.remove()
+        }
+        
+    }, false)
+</script>
+</html>
