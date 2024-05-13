@@ -66,7 +66,7 @@ console.table([accountId,accountEmail,accountPassword,accountCity])
 - We declare constants in JS using the `const` keyword
 - To declare a variable there are 2 ways : `var` and `let`,but we don't use var anymore
 - This was because initially JS did not work on the basis of scope. All variables declared (using `var`) had global scope, which was a disaster. Due to these issues in block scope and functional scope, `var` has now been replaced by `let`.
-- Do remember that we can declare variables names without `let` because JS is a clean language, it is not recommended.
+- Do remember that we **can** declare variables names without `let` because JS is a clean language, it is *not recommended*.
 - If we do not assign a value to a variable at declaration, then JS will consider that value as `undefined`
 
 ```javascript

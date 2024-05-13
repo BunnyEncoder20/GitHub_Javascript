@@ -53,14 +53,14 @@ let obj = {name:"soma"}
 console.log(obj.name)       // 'soma'
 console.log(obj['name'])    // 'soma'
 ```
-- **BUT** if we give the fields in the following format (Field name has a space in better or multiple words long) : 
+- **BUT** if we give the fields in the following format (Field name has a space in between or multiple words long) : 
 ```
 let obj = {"Full name":"soma", age:22}
 console.log(obj['Full name'])           // 'soma'
 console.log(obj['age'])                 // 22
 console.log(obj."Full name")            // Error
 ```
-- **then** we will get an Error cause there is no other way of accessing these fields other than using the `['field name']` way.
+- **then** we will get an Error if we try to access these fields using the `.` operator cause there is no other way of accessing these fields other than using the `['field name']` way.
 
 <br>
 
@@ -96,6 +96,7 @@ console.log(obj)        // { name: 'Soma', likes: '🐰', job: '💻' }
   - Freezing an object prevents extensions and makes existing properties non-writable and non-configurable.
   - returns the same object we passed to it 
   - It doesn't throw an error when we try to add new properties to it
+  - Just simply doesn't add it.
 
 ```javascript
 let obj = {name:"Soma",likes:['🍎','🍌','🥝']}
@@ -128,8 +129,8 @@ let obj = {
 console.log(obj.greeting)       // [Function: greeting]
 obj.greeting()                  // Hello World
 ```
-- The first log returns ref to the obj function 
-- The line after that actually executes the function `greeting()`.
+- The first log returns ref to the obj function (returns the reference of the function)
+- The line after that actually executes the function `greeting()` (calls / invokes / executes the function).
 - We can also add functions to a pre-declared object like such: 
   
 ```javascript

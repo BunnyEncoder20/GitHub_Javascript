@@ -295,7 +295,7 @@ console.log(Array.from(Object.values(obj))) // [ 'bunny', 'Soma', 'Chk Shawarma'
 
 5. `Array.of()`: 
     - method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments. 
-    - 
+  
 ```javascript
 let e1 = 100
 let e2 = true
@@ -304,3 +304,22 @@ console.log(Array.of(e1, e2, e3))   // [ 100, true, 'Soma' ]
 ```
 
 ---
+
+## Shallow Copy and Deep Copy
+
+- **Shallow Copy:** When we copy a DS (object, array) with a shallow copy, it creates a copy of all the values of that object. However if the DS contains **reference to another object (example a array as in nested arrays or objects as in objects within the array) then only the reference to those objects are copied.** Thus if we make any changes to the basic elements (normal values) those changes will not be reflected in the original DS. However if we make changes to the copy's referenced objects (like a nested array or object), then the changes will be reflected back onto the original DS.
+
+- **Deep Copy:** created a copy of the original DS. All the **values and referenced objects values** are copied, thus creating a complete copy of the original DS (if the referenced object contains more referenced objects, it also makes a copy of those recursively). Thus any changes we make to a deep copy will not be reflected in the original DS. 
+
+<br>
+
+- A simple way to make deep copies of a DS is as follows: 
+```javascript
+let nestedArray = [[1,2,3],[4,5,6],7,8,9]
+let shallowCopy = [...nestedArray]
+let deepCopy = JSON.parse(JSON.stringify(nestedArray))
+let deepCopy = JSON.parse(JSON.stringify(nestedArray))
+```
+- The 'deepCopy' is made by first converting the original 'nestedArray' into a JSON formatted string (using JSON.stringify()), and then again converting it back into a JS object/array (using JSON.parse()).
+>- **JSON.parse(string)** converts the passed string into a array
+>- **JSON.stringify(array)** converts the passed JS object/array into a JSON formatted string representation of the object.
