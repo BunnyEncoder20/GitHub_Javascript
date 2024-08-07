@@ -1,43 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { login, logout } from '../context/auth.slice';
 import axios from 'axios'
 
-function Landing() {
-    const dispatch = useDispatch()
 
-    const [loading, setLoading] = useState(true);
-    const [err, setErr] = useState(false);
-    const [users, setUsers] = useState();
+function Landing() {
+
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
-        ; (async () => {
-            try {
-                setLoading(true);
-                setErr(false);
+        setLoading(true);
 
-                const res = await axios.get('https://api.freeapi.app/api/v1/public/randomusers/12');
-                // const res = await axios.get('https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=5')
-                const data = res.data.data.data
-                console.log(data);
-                if (data) {
-                    setUsers(data);
-                    dispatch(login({ userData: data }))
-                } else {
-                    dispatch(logout())
-                }
-
-            }
-            catch (error) {
-                console.error("There was an error : ", error);
-                setErr(true);
-            }
-            finally {
-                setLoading(false);
-            }
-        })()
-    }, [dispatch, setLoading])
-
+        setLoading(false);
+    }, [setLoading]);
 
     // Conditional rednering of Component 
     return loading ? (
@@ -50,7 +25,7 @@ function Landing() {
 
             <br />
 
-            {/* <h2>You are logged in now !</h2> */}
+            <h2>You are logged in now !</h2>
 
             <br />
 
