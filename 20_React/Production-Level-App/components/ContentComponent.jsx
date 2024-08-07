@@ -33,18 +33,14 @@ function Landing() {
 
             <br />
 
-            {
-                users.map((user) => (
-                    <div key={user.id}>
-                        <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
-                        <label htmlFor="title">Name : </label> <span id="title">{user.name.title} {user.name.first} {user.name.last}</span> <br />
-                        <label htmlFor="email">Email : </label> <span id="email">{user.email}</span> <br />
-                        <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br />
-                        <br />
-                        <br />
-                    </div>
-                ))
-            }
+            <div >
+                <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
+                <label htmlFor="title">Name : </label> <span id="title">{user.name.title} {user.name.first} {user.name.last}</span> <br />
+                <label htmlFor="email">Email : </label> <span id="email">{user.email}</span> <br />
+                <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br />
+                <br />
+                <br />
+            </div>
 
             <br />
             <br />
