@@ -22,9 +22,10 @@ function Login() {
             const session = await authService(data);
             if (session) {
                 dispatch(storeLoginAction({userData:session}));
-                navigate("/content")
+                navigate("/content");
             }
             else {
+                setError("Invalid username or password");
                 dispatch(storeLogoutAction());
             }
         }
@@ -44,6 +45,28 @@ function Login() {
             <p>Enter your Credentials</p>
 
             {error && <p>ERROR : {error}</p>}
+
+            <form onSubmit={handleSubmit(login)}>
+                <input type="text" name="username" id="username" placeholder='Username'
+                {...register(email,{
+                    required : true,
+                    pattern : {
+                        value : /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                        message : "Enter a valid email address"
+                    }
+                })}/>
+
+                <br />
+
+                <input type="password" name="password" id="password" placeholder='password'
+                {...register(password, {
+                    required : true
+                })}/>
+
+                <br />
+
+                <button type="submit">Sign in</button>
+            </form>
         </>
     )
 }
