@@ -15,6 +15,7 @@ function LoginComponent() {
     const [loading, setLoading] = useState(false);
 
     const login = async (data) => {
+        console.log(data);
         setLoading(true)
         setError('')
 
@@ -48,7 +49,7 @@ function LoginComponent() {
 
             <form onSubmit={handleSubmit(login)}>
                 <input type="text" name="username" id="username" placeholder='Username'
-                {...register(email,{
+                {...register("email",{
                     required : true,
                     pattern : {
                         value : /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -59,13 +60,13 @@ function LoginComponent() {
                 <br />
 
                 <input type="password" name="password" id="password" placeholder='password'
-                {...register(password, {
+                {...register("password", {
                     required : true
                 })}/>
 
                 <br />
 
-                <button type="submit">Sign in</button>
+                <button type="submit" disabled={loading}>Sign in</button>
             </form>
         </>
     )

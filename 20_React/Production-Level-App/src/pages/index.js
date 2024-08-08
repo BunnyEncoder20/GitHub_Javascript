@@ -1,4 +1,4 @@
-import LoginPage from "./Content.page";
+import LoginPage from "./Login.page";
 import ContentPage from "./Content.page";
 
 export {

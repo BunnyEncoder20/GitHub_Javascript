@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
-import { login, logout } from '../context/auth.slice';
-import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout as storeLogoutAction } from '../context/auth.slice';
 
 
 function ContentComponent() {
-
+    const dispatch = useDispatch();
+    const nav = useNavigate();
+    const [user, setUser] = useState();
     const [loading,setLoading] = useState(true);
 
     useEffect(() => {
@@ -13,6 +15,11 @@ function ContentComponent() {
 
         setLoading(false);
     }, [setLoading]);
+
+    const logoutHandler = () => {
+        dispatch(storeLogoutAction());
+        nav('/');
+    }
 
     // Conditional rednering of Component 
     return loading ? (
@@ -28,10 +35,10 @@ function ContentComponent() {
             <br />
 
             <div >
-                <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
+                {/* <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
                 <label htmlFor="title">Name : </label> <span id="title">{user.name.title} {user.name.first} {user.name.last}</span> <br />
                 <label htmlFor="email">Email : </label> <span id="email">{user.email}</span> <br />
-                <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br />
+                <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br /> */}
                 <br />
                 <br />
             </div>
@@ -40,7 +47,7 @@ function ContentComponent() {
             <br />
             <br />
 
-            <button> Logout </button>
+            <button onClick={()=>{logoutHandler}}> Logout </button>
         </>
     )
 }
