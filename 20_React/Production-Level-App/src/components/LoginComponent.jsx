@@ -57,19 +57,19 @@ function LoginComponent() {
                         message : "Enter a valid email address"
                     }
                 })}/>
+                
+                {errors.email ? <h6>{errors.email.message}</h6> : <br />}
 
-                {errors.email && <p>{errors.email.message}</p>}
-
-                <br /><br />
+                <br />
 
                 <input type="password" name="password" id="password" placeholder='password'
                 {...register('password', {
                     required : 'password is required'
                 })}/>
 
-                {errors.password && <p>{errors.password.message}</p>}
+                {errors.password ? <h6>{errors.password.message}</h6> : <br />}
 
-                <br /><br />
+                <br />
 
                 <button type="submit" disabled={loading}> {loading ? "Signing in..." : "Login" } </button>
             </form>
