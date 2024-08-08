@@ -9,18 +9,19 @@ import authService from '../services/authService'
 function LoginComponent() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState:{errors} } = useForm();
 
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     const login = async (data) => {
-        console.log(data);
+        
         setLoading(true)
         setError('')
 
         try {
             const session = await authService(data);
+            console.log('session res : ',session);
             if (session) {
                 dispatch(storeLoginAction({userData:session}));
                 navigate('/content');
@@ -48,25 +49,29 @@ function LoginComponent() {
             {error && <p>ERROR : {error}</p>}
 
             <form onSubmit={handleSubmit(login)}>
-                <input type="text" name="username" id="username" placeholder='Username'
-                {...register("email",{
-                    required : true,
+                <input type="email" name="email" id="email" placeholder='Email'
+                {...register('email',{
+                    required : "Email is requrired",
                     pattern : {
                         value : /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
                         message : "Enter a valid email address"
                     }
                 })}/>
 
-                <br />
+                {errors.email && <p>{errors.email.message}</p>}
+
+                <br /><br />
 
                 <input type="password" name="password" id="password" placeholder='password'
-                {...register("password", {
-                    required : true
+                {...register('password', {
+                    required : 'password is required'
                 })}/>
 
-                <br />
+                {errors.password && <p>{errors.password.message}</p>}
 
-                <button type="submit" disabled={loading}>Sign in</button>
+                <br /><br />
+
+                <button type="submit" disabled={loading}> {loading ? "Signing in..." : "Login" } </button>
             </form>
         </>
     )
