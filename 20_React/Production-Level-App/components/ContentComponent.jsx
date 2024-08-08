@@ -4,7 +4,7 @@ import { login, logout } from '../context/auth.slice';
 import axios from 'axios'
 
 
-function Landing() {
+function Content() {
 
     const [loading,setLoading] = useState(true);
 
@@ -51,4 +51,4 @@ function Landing() {
     )
 }
 
-export default Landing
+export default Content

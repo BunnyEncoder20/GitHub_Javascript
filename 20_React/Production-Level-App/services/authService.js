@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const authService = (username, password) => {
+const authService = ({username, password}) => {
     const correct_username = 'admin';
     const correct_password = 'admin123';
     
