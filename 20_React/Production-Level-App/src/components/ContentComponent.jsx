@@ -1,24 +1,41 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout as storeLogoutAction } from '../context/auth.slice';
 
 
 function ContentComponent() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const nav = useNavigate();
+
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState();
-    const [loading,setLoading] = useState(true);
+
+    const userStatus = useSelector(state => state.auth.status);
+    const userData = useSelector(state => state.auth.userData);
+
+    
 
     useEffect(() => {
         setLoading(true);
-
-        setLoading(false);
-    }, [setLoading]);
+        
+        if (userStatus){
+            console.log("Loading Data");
+            setTimeout(() => {
+                setUser(userData)
+                setLoading(false);
+            }, 1500);
+        } 
+        else {
+            console.error("User is not authenticated. Please Login");
+            navigate('/');
+        }
+    }, [userData, userStatus, setLoading]);
 
     const logoutHandler = () => {
+        console.log("Logout Clicked");
         dispatch(storeLogoutAction());
-        nav('/');
+        navigate('/');
     }
 
     // Conditional rednering of Component 
@@ -35,10 +52,10 @@ function ContentComponent() {
             <br />
 
             <div >
-                {/* <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
+                <label htmlFor="gender">Gender : </label> <span id="gender">{user.gender}</span> <br />
                 <label htmlFor="title">Name : </label> <span id="title">{user.name.title} {user.name.first} {user.name.last}</span> <br />
                 <label htmlFor="email">Email : </label> <span id="email">{user.email}</span> <br />
-                <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br /> */}
+                <label htmlFor="phone">Phone Number : </label> <span id="phone">{user.phone}</span> <br />
                 <br />
                 <br />
             </div>
@@ -47,7 +64,7 @@ function ContentComponent() {
             <br />
             <br />
 
-            <button onClick={()=>{logoutHandler}}> Logout </button>
+            <button onClick={logoutHandler}> Logout </button>
         </>
     )
 }

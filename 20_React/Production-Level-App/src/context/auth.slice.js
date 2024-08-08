@@ -13,10 +13,12 @@ const authSlice = createSlice({
         login : (state, action) => {
             state.status = true;
             state.userData = action.payload.userData;
+            console.log("user data set in store");
         },
         logout : (state) => {
             state.status = false;
             state.userData = null;
+            console.log("user data removd from store");
         }
     }
 })

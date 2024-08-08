@@ -21,7 +21,7 @@ function LoginComponent() {
 
         try {
             const session = await authService(data);
-            console.log('session res : ',session);
+            
             if (session) {
                 dispatch(storeLoginAction({userData:session}));
                 navigate('/content');

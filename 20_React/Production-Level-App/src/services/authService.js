@@ -6,24 +6,20 @@ const authService = ({email, password}) => {
     
     return new Promise((resolve, reject) => {
         console.log("Authenticating Credentials...");
-        setTimeout(() => {
-
-            ; (async () => {
-                try {
-                    if (email === correct_email && password === correct_password) {
-                        const res = await axios.get('https://api.freeapi.app/api/v1/public/randomusers/12')
-                        resolve(res.data.data);
-                    }
-                    else {
-                        console.log("User not found");
-                        resolve(null);
-                    }
-                } catch (error) {
-                    reject(error);
+        ; (async () => {
+            try {
+                if (email === correct_email && password === correct_password) {
+                    const res = await axios.get('https://api.freeapi.app/api/v1/public/randomusers/12')
+                    resolve(res.data.data);
                 }
-            })()
-
-        }, 3000)
+                else {
+                    console.log("User not found");
+                    resolve(null);
+                }
+            } catch (error) {
+                reject(error);
+            }
+        })()
     })
 
 }
