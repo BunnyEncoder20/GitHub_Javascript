@@ -4,7 +4,7 @@ import { login, logout } from '../context/auth.slice';
 import axios from 'axios'
 
 
-function Content() {
+function ContentComponent() {
 
     const [loading,setLoading] = useState(true);
 
@@ -21,12 +21,6 @@ function Content() {
         </>
     ) : (
         <>
-            <h1>Simple Login Practice</h1>
-
-            <br />
-
-            <h2>You are logged in now !</h2>
-
             <br />
 
             <h3>User Info : </h3>
@@ -51,4 +45,4 @@ function Content() {
     )
 }
 
-export default Content
+export default ContentComponent

@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login as storeLoginAction, logout as storeLogoutAction } from '../context/auth.slice'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import { authService } from '../services/authService'
+import authService from '../services/authService'
 
 
-function Login() {
+function LoginComponent() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
@@ -22,7 +22,7 @@ function Login() {
             const session = await authService(data);
             if (session) {
                 dispatch(storeLoginAction({userData:session}));
-                navigate("/content");
+                navigate('/content');
             }
             else {
                 setError("Invalid username or password");
@@ -71,4 +71,4 @@ function Login() {
     )
 }
 
-export default Login
+export default LoginComponent
